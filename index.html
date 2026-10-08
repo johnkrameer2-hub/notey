@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#ffffff"><meta name="color-scheme" content="light"><meta name="description" content="notey. — PDF’lerin üzerinde yaz, seç, düzenle ve not al. Tablet, telefon ve bilgisayarda; belgelerin cihazında kalır.">
+  <title>notey. — PDF ve Not Defteri</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="icon-192.png"><link rel="manifest" href="manifest.webmanifest">
+  <script type="module" crossorigin src="./assets/index-DmRbdQRD.js"></script>
+  <link rel="modulepreload" crossorigin href="./assets/dist-DQ6c6QyD.js">
+  <link rel="modulepreload" crossorigin href="./assets/preload-helper-pLTTlFDv.js">
+  <link rel="stylesheet" crossorigin href="./assets/index-Lgxxx6IO.css">
+</head>
+<body>
+  <div class="app" id="app">
+    <aside class="sidebar" id="sidebar" aria-label="Kitaplık ve sayfalar">
+      <div class="side-heading"><div class="brand-copy"><span class="wordmark">notey<span>.</span></span><small>copyright FLOVEY</small></div><button class="icon-button sidebar-close" id="sidebar-close" aria-label="Paneli kapat" title="Paneli kapat" data-icon="close"></button></div>
+      <div class="side-switch" role="tablist" aria-label="Kenar paneli"><button type="button" role="tab" data-side-view="library" aria-selected="true"><span data-icon="library"></span>Kitaplık<b id="library-count"></b></button><button type="button" role="tab" data-side-view="pages" aria-selected="false"><span data-icon="pages"></span>Sayfalar<b id="pages-count"></b></button><button type="button" class="side-expand" id="library-expand" aria-label="Kitaplığı büyüt: bütün ekranda, klasörler yan yana" title="Kitaplığı büyüt"><span data-icon="tiles"></span></button></div>
+      <div class="side-content" id="library-view">
+        <div class="library-actions"><button class="lib-action primary" id="import-button"><span data-icon="plus"></span>PDF ekle</button><button class="lib-action" id="new-notebook"><span data-icon="notebook"></span>Temiz sayfa</button><button class="lib-action" id="new-folder"><span data-icon="folder"></span>Klasör</button></div>
+        <p class="side-hint">Belgeye dokun: açılır. <b>⋯</b> sayfaları, adı, klasörü, medyası, silme. Basılı tutup klasöre sürükle. <b>⊞</b> Kitaplığım bütün ekranda.</p>
+        <div id="document-list" class="document-list"></div>
+        <div class="storage-note"><span data-icon="shield"></span><div><strong>Yalnızca bu cihazda</strong><p>Belgelerin sana ait. Taşımak için dışa aktar.</p></div></div>
+        <a id="android-download" class="android-install-link" href="./tablet.html" hidden>Android tablette dene ↗</a>
+      </div>
+      <div class="side-content hidden" id="pages-view"><div class="pages-head"><span data-icon="document"></span><strong id="pages-doc"></strong></div><p class="side-hint">Sayfaya dokun: gider. <b>⋯</b> taşı, döndür, kareli / çizgili, sil. Basılı tutup sürükle: sırala.</p><div id="thumbnail-list" class="thumbnail-list"></div><button id="add-page" class="new-notebook"><span data-icon="plus"></span>Boş sayfa ekle</button><section class="marks-section" aria-labelledby="marks-title"><div class="section-heading"><h2 id="marks-title">Etiketler ve çözümler</h2><span id="marks-count"></span></div><div id="marks-list" class="marks-list"></div><div class="marks-add"><button type="button" id="marks-add-tag"><span data-icon="flag"></span>Etiket</button><button type="button" id="marks-add-area"><span data-icon="frame"></span>Çözüm alanı</button></div></section><button type="button" class="library-media" id="document-media-button"><span data-icon="gallery"></span><span><strong>Bu PDF’in medyası</strong><small>Snapshot ve görseller, galeri gibi</small></span><b id="document-media-count"></b></button></div>
+    </aside>
+    <main class="editor">
+      <header class="topbar">
+        <button id="mobile-menu" class="icon-button mobile-menu" aria-label="Kitaplığı ve sayfaları aç veya kapat" title="Kitaplık ve sayfalar" aria-controls="sidebar" data-icon="menu"></button>
+        <div class="document-tabs" id="document-tabs"></div>
+        <div class="topbar-actions"><button id="visibility-button" class="tool visibility-button" aria-label="Gizle Göster: ekrandaki bölümleri aç veya kapat" title="Gizle Göster"></button><button id="focus-button" class="focus-button labelled" aria-label="Tam ekran: yalnız sayfa ve araç şeridi" title="Tam ekran"><span data-icon="focus"></span><span class="button-label">Tam ekran</span></button><button id="settings-button" class="settings-button" aria-label="Ayarlar: dışa ve içe aktarma, genel tercihler" title="Ayarlar" aria-haspopup="dialog" data-icon="gear"></button></div>
+      </header>
+      <div class="toolbar" aria-label="Düzenleme araçları">
+        <div class="tool-group" role="group" aria-label="Araçlar">
+          <button class="tool active" data-tool="hand" data-icon="hand" title="Gezin (H)" aria-label="Gezin" aria-pressed="true"></button>
+          <button class="tool" data-tool="pen" data-icon="pen" title="Kalem (P)" aria-label="Kalem" aria-pressed="false"></button>
+          <button class="tool" data-tool="highlight" data-icon="highlight" title="Vurgulayıcı (V)" aria-label="Vurgulayıcı" aria-pressed="false"></button>
+          <button class="tool" data-tool="eraser" data-icon="eraser" title="Silgi (E)" aria-label="Silgi" aria-pressed="false"></button>
+          <button class="tool" data-tool="text" data-icon="text" title="Metin notu (T)" aria-label="Metin notu" aria-pressed="false"></button>
+          <button class="tool" data-tool="lasso" data-tools="lasso rect" data-icon="lasso" title="Seç (L / R)" aria-label="Seç" aria-pressed="false"></button>
+          <button class="tool" data-tool="shape" data-icon="shapes" title="Şekil (U)" aria-label="Şekil" aria-pressed="false"></button>
+          <button class="tool" data-tool="snapshot" data-icon="camera" title="Snapshot (C)" aria-label="Snapshot" aria-pressed="false"></button>
+          <button class="tool media-button" id="media-button" title="Medya: bu PDF’in snapshot ve görselleri (M)" aria-label="Medya: bu PDF’in, klasörün ve bütün görseller; ekle, düzenle, sil" aria-haspopup="dialog"></button>
+        </div>
+        <span class="divider hidden"></span><div class="tool-context" id="tool-context" role="group" aria-label="Araç seçenekleri" hidden></div>
+        <span class="divider"></span><div class="tool-group toolbar-end"><button id="insert-button" class="tool" data-icon="plus" title="Ekle" aria-label="Ekle: görsel, sayfa, zemin, etiket, çalışma alanı" aria-haspopup="dialog" aria-expanded="false"></button></div>
+      </div>
+      <div class="workspace" id="workspace">
+        <div class="selection-actions" id="selection-actions" hidden><strong id="selection-count"></strong><button data-command="copy" title="Seçimi kopyala" aria-label="Seçimi kopyala" data-icon="copy"></button><button data-command="duplicate" title="Seçimi çoğalt" aria-label="Seçimi çoğalt" data-icon="duplicate"></button><button data-command="lock" title="Kilitle" aria-label="Seçimi kilitle" aria-pressed="false" data-icon="lock"></button><button data-command="delete" title="Seçimi sil" aria-label="Seçimi sil" data-icon="trash"></button><button data-command="escape" title="Seçimi bırak" aria-label="Seçimi bırak" data-icon="close"></button></div>
+        <div class="dock-history" id="dock-history" role="group" aria-label="Geri al ve yinele: çizimler, sorular, notlar"><button id="undo" class="dock-history-button" data-icon="undo" title="Geri al (Ctrl+Z)" aria-label="Geri al" disabled></button><button id="redo" class="dock-history-button" data-icon="redo" title="Yinele (Ctrl+Shift+Z)" aria-label="Yinele" disabled></button></div><div class="focus-bar" role="toolbar" aria-label="Tam ekran araçları"><button id="focus-visibility" class="focus-chip focus-visibility" aria-label="Gizle Göster: ekrandaki bölümleri aç veya kapat" title="Gizle Göster"></button><button id="focus-exit" class="focus-chip focus-exit" aria-label="Tam ekrandan çık"><span data-icon="focus"></span><span class="button-label">Tam ekrandan çık</span></button></div><nav class="focus-nav" id="focus-nav" aria-label="Sayfa gezintisi"><button id="focus-where" class="focus-where" aria-haspopup="dialog" aria-expanded="false"><span id="focus-doc"></span><b id="focus-page"></b></button><label class="page-search"><span data-icon="search"></span><input id="focus-page-search" class="page-search-input" type="text" inputmode="numeric" pattern="[0-9]*" enterkeyhint="go" autocomplete="off" maxlength="5" placeholder="Sayfa" aria-label="Sayfaya git: numarasını yaz"></label></nav><output id="zoom-badge" class="zoom-badge" hidden></output><div class="page-rail" id="page-rail" hidden></div><div class="paper-scroll" id="paper-scroll"><div id="papers" class="papers" aria-label="PDF sayfaları"><div class="loading-card">Çalışma alanın hazırlanıyor…</div></div></div>
+        <aside id="linked-workspace" class="linked-workspace" aria-label="Çözüm alanı" hidden>
+          <header class="lw-head"><span class="lw-badge" data-icon="solve" aria-hidden="true"></span><div class="lw-title"><strong id="scratch-title">Çözüm</strong><small id="scratch-where"></small></div><button id="scratch-jump" class="lw-icon" data-icon="target" aria-label="Soruya git" title="Soruya git"></button><button id="scratch-more" class="lw-icon" data-icon="more" aria-label="Çözüm alanı seçenekleri" title="Seçenekler" aria-haspopup="dialog" aria-expanded="false"></button><button id="scratch-close" class="lw-icon" data-icon="close" aria-label="Çözüm alanını kapat" title="Kapat"></button></header>
+          <div class="lw-areas"><div id="scratch-list" class="scratch-chips" role="tablist" aria-label="Çözüm alanları"></div><button id="scratch-new" class="lw-icon" data-icon="plus" aria-label="Yeni çözüm alanı" title="Yeni çözüm alanı"></button></div>
+          <div class="lw-tools" role="group" aria-label="Çözüm aracı"><button type="button" data-scratch-tool="pen" aria-pressed="true"><span data-icon="pen"></span>Kalem</button><button type="button" data-scratch-tool="highlight" aria-pressed="false"><span data-icon="highlight"></span>Vurgu</button><button type="button" data-scratch-tool="eraser" aria-pressed="false"><span data-icon="eraser"></span>Silgi</button><button type="button" id="scratch-undo" class="lw-icon" data-icon="undo" aria-label="Geri al" title="Geri al"></button></div>
+          <div class="lw-view"><div class="lw-zoom" role="group" aria-label="Kağıdın yakınlığı"><button type="button" id="scratch-zoom-out" class="lw-icon" data-icon="minus" aria-label="Uzaklaştır" title="Uzaklaştır"></button><button type="button" id="scratch-zoom-label" class="lw-zoom-label" title="Sığdır">%100</button><button type="button" id="scratch-zoom-in" class="lw-icon" data-icon="plus" aria-label="Yakınlaştır" title="Yakınlaştır"></button></div><button type="button" id="scratch-expand" class="lw-expand" aria-label="Büyüt: soru üstte, çözüm kağıdı büyük, ayrı geçici sayfada" title="Soru üstte, büyük çözüm kağıdı"><span data-icon="expand"></span>Büyüt</button></div>
+          <div class="scratch-paper" id="scratch-paper"><div class="scratch-sheet" id="scratch-sheet"><canvas id="scratch-canvas"></canvas><canvas id="scratch-draft" aria-label="Çözüm alanına yaz"></canvas></div></div>
+          <textarea id="scratch-text" maxlength="12000" aria-label="Not" placeholder="Not ekle…"></textarea><div class="lw-actions" id="scratch-actions" hidden><button type="button" class="button secondary" id="scratch-cancel">İptal</button><button type="button" class="button primary" id="scratch-save"><span data-icon="check"></span>Kaydet</button></div>
+          <section id="reference-window" class="reference-window" hidden><header><span id="reference-label"></span><button id="reference-remove" class="lw-icon" data-icon="close" aria-label="Referansı kaldır" title="Referansı kaldır"></button></header><canvas id="reference-canvas" aria-label="Bağlı referans sayfası"></canvas></section>
+        </aside>
+      </div>
+      <footer class="statusbar"><span class="save-status" id="save-status" role="status">Hazırlanıyor…</span><button type="button" class="link-status" id="link-status" hidden></button><nav class="page-navigator" aria-label="Sayfa gezintisi"><b class="page-now" id="page-now" aria-live="polite"></b><label class="page-search"><span data-icon="search"></span><input id="page-search" class="page-search-input" type="text" inputmode="numeric" pattern="[0-9]*" enterkeyhint="go" autocomplete="off" maxlength="5" placeholder="Sayfa" aria-label="Sayfaya git: numarasını yaz"></label></nav><div class="zoom-control"><button id="zoom-out" class="icon-button" data-icon="minus" aria-label="Uzaklaştır"></button><button id="zoom-label" title="Sayfayı genişliğe sığdır" aria-label="Yakınlaştırma %100. Sığdırmak için dokun.">%100</button><button id="zoom-in" class="icon-button" data-icon="plus" aria-label="Yakınlaştır"></button></div></footer>
+    </main>
+  </div>
+  <input type="file" id="backup-input" accept=".notey,application/octet-stream" hidden>
+  <input type="file" id="file-input" accept="application/pdf,.pdf" multiple hidden>
+  <input type="file" id="image-input" accept="image/png,image/jpeg,image/webp,.png,.jpg,.jpeg,.webp" hidden>
+  <button id="update-ready" class="update-ready" hidden>Yeni sürüm hazır · Aç</button>
+  <div class="scrim" id="scrim"></div><div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <dialog id="form-dialog"><form id="dialog-form"><div class="dialog-header"><h2 id="dialog-title"></h2><button type="button" class="icon-button" id="dialog-close" data-icon="close" aria-label="Kapat"></button></div><div id="dialog-body"></div><div class="dialog-actions"><button type="button" id="dialog-cancel" class="button secondary">Vazgeç</button><button type="submit" id="dialog-submit" class="button primary">Kaydet</button></div></form></dialog>
+  <noscript>notey.’yi kullanmak için tarayıcında JavaScript’i etkinleştir.</noscript>
+</body></html>
