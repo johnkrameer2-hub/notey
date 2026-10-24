@@ -20,13 +20,13 @@
   <header><a class="brand" href="./">eynotes<span>.</span></a></header>
   <a class="back" href="./">← İndirme sayfasına dön</a>
   <h1>Gizlilik ve KVKK bilgilendirmesi</h1>
-  <p class="updated">Son güncelleme: 2026-10-20</p>
+  <p class="updated">Son güncelleme: 2026-10-24</p>
   <section><h2>Veri sorumlusu ve iletişim</h2>
     <p>Veri sorumlusu: <strong>FLOVEY şirketi</strong><br>İletişim e-postası: <a href="mailto:info@floveyweb.com">info@floveyweb.com</a></p>
     <p>Kişisel verilerinle ilgili talebini bu e-posta adresine iletebilirsin.</p>
   </section>
   <section><h2>Cihazında kalanlar</h2>
-    <p>Belgelerin ve PDF'lerin, notların, kalem çizimlerin, çözüm alanların, ekran görüntülerinden eklediklerin ve tercihlerin cihazında saklanır. Hesap açmadan da uygulamayı kullanabilirsin. Cihazındaki belgeler, eynotes hesap sunucusuna içerik olarak gönderilmez.</p>
+    <p>Belgelerin ve PDF'lerin, notların, kalem çizimlerin, çözüm alanların, ekran görüntülerinden eklediklerin ve tercihlerin cihazında saklanır. Hesap açmadan da uygulamayı kullanabilirsin. Cihazındaki belgeler, Paylaşım, Canlı ve Sınıf'ı kullanmadıkça eynotes hesap sunucusuna içerik olarak gönderilmez.</p>
   </section>
   <section><h2>Google Drive'a bağlanırsan</h2>
     <p>Bağlantıyı sen açarsan PDF ve yanındaki düzenlenebilir <strong>.notey</strong> yedeği kendi Google Drive'ındaki <strong>“eynotes”</strong> klasörüne yüklenir. Eski kurulumların <strong>“notey”</strong> adlı klasörü aynı kimlikle kullanılmaya devam eder; mevcut klasörün yanında ikinci bir klasör açılmaz.</p>
@@ -37,13 +37,26 @@
     <ul>
       <li>Ad, e-posta, plan ve parolanın kendisi yerine <strong>scrypt özeti</strong>; Google ile girişte Google hesap kimliği.</li>
       <li>Cihaz adı, platformu, uygulama sürümü ve son görülme zamanı.</li>
-      <li>Belge içeriği yerine yalnız başlık, tür, boyut, SHA-256 parmak izi, değiştirilme zamanı ve Drive dosya kimlikleri. PDF, not, çizim ve ekran görüntüsü içeriği Kapı'ya yüklenmez.</li>
+      <li>Belge içeriği yerine yalnız başlık, tür, boyut, SHA-256 parmak izi, değiştirilme zamanı ve Drive dosya kimlikleri. PDF, not, çizim ve ekran görüntüsü içeriği hesap eşitlemesiyle Kapı'ya yüklenmez; Paylaşım, Canlı ve Sınıf'ta durum farklıdır, aşağıdaki bölüme bak.</li>
       <li>IP adresi ve kullanıcı aracısı içeren giriş olayları <strong>90 gün</strong>; yönetici denetim kayıtları <strong>365 gün</strong> tutulur.</li>
     </ul>
     <p>Bu bilgiler hesap oturumunu, cihaz listesini ve eşitleme durumunu sunmak, kötüye kullanımı incelemek için işlenir. Google ile giriş seçersen Google, eynotes'a adını, e-posta adresini ve değişmeyen hesap kimliğini iletir.</p>
   </section>
+  <section><h2>Paylaşım, Canlı ve Sınıf'ı kullanırsan</h2>
+    <p>Bağlantıyla paylaşırsan, canlı oturum açarsan ya da sınıf kullanırsan belgenin ya da ödevin şifreli hâli Kapı'ya yüklenir. İçerik, yüklenmeden önce cihazında AES-256-GCM ile şifrelenir. Anahtar Kapı'ya açık hâlde gitmez: paylaşımda ve canlı oturumda bağlantının <strong>#</strong> işaretinden sonrasında, sınıfta sınıf kodunun gizli kısmında kalır. Bu yüzden Kapı, yani FLOVEY, şifreli içeriği açamaz. Bağlantı oluşturmak, canlı oturum açmak ya da katılmak ve sınıf kullanmak için eynotes hesabıyla giriş yaparsın; paylaşım bağlantısını açmak için hesap gerekmez.</p>
+    <ul>
+      <li><strong>Paylaşım bağlantısı:</strong> Şifreli belge, seçtiğin süre boyunca (en çok 365 gün) Kapı'da durur. Bağlantıyı alan herkes belgeyi açabilir. Kapı şifresiz olarak yalnız hesabını, şifreli dosyanın boyutunu ve özetini, oluşturma ve son geçerlilik zamanını görür; başlık da şifreli yüklenir. Paylaşımı Kitaplığım › Paylaşılanlar'dan durdurursan bağlantı çalışmayı bırakır ve şifreli kopya Kapı'dan silinir (silme isteği ulaşmazsa en geç yaklaşık bir gün içinde). Süre dolunca da bağlantı çalışmaz ve şifreli kopya Kapı'dan temizlenir. Bağlantıyı açanların cihazına inmiş kopyalar silinmez.</li>
+      <li><strong>Canlı oturum:</strong> Belgenin anlık görüntüsü, oturum başlığı ve her değişiklik şifreli yüklenir. Kapı, son anlık görüntüden sonraki değişiklikleri en çok 1000 ileti ya da 8 MiB kadar tutar. Şifresiz olarak oturumu açan ve katılan hesapları (adlar oturumdaki herkese gösterilir), katılma zamanını, her değişikliğin hangi hesaptan geldiğini ve yaklaşık boyutunu, oturumun açılış ve son hareket zamanını görür. Oturumu bitirirsen şifreli veriler bitişten 7 gün sonra, bitirmezsen son hareketten 7 gün sonra silinir. Katılanların cihazına inmiş kopyalar silinmez. Oturumun çalışma kopyası hesabının belge listesine yazılmaz.</li>
+      <li><strong>Sınıf:</strong> Ödev, teslim, geri gönderilen belge, ödev başlığı ve öğretmenin notu şifreli yüklenir. Kapı şifresiz olarak sınıfın ve varsa kurumun adını; öğretmenin ve öğrencilerin adını, e-postasını ve rolünü; kimin hangi sınıfta olduğunu; katılma, çıkarılma ve yeniden katılma isteği zamanlarını; ödevlerin ve teslimlerin zamanını, son gününü, sürüm numarasını ve şifreli boyutunu; cihazların sınıf için açık anahtarlarını, imzalı kayıtları ve şifreli anahtar zarflarını görür. Öğretmen sınıfındaki öğrencilerin adını ve e-postasını, çıkardıklarını görür; öğrenci yalnız öğretmenini ve kendini görür. Kurum yöneticisi kurum üyelerinin adını, e-postasını ve rolünü görür, sınıfların içeriğini göremez. Öğretmen bir ödevi silince ödev ve teslimleri hemen, şifreli dosyaları en geç yaklaşık bir gün içinde silinir. Sınıfı arşivlersen 30 gün sonra sınıfın bütün kayıtları ve şifreli dosyaları silinir. Öğrenci sınıftan ayrılır ya da çıkarılırsa teslim ettikleri öğretmende kalır. Sınıftan gelen belgeler hesabının belge listesine yazılmaz.</li>
+    </ul>
+    <p>Bu bilgiler paylaşım bağlantısını, canlı oturumu ve sınıfları yürütmek ve kötüye kullanımı incelemek için işlenir. Bu özellikleri kullanmadıkça bu bölümdeki bilgiler Kapı'da oluşmaz.</p>
+  </section>
+  <section><h2>Yazı ve el yazısı tanıma</h2>
+    <p>Taranmış sayfaların ve görsellerin yazısı ile el yazın cihazında tanınır; sayfaların görüntüsü ya da yazdıkların bu iş için bir sunucuya gönderilmez. Bilgisayarda uygulamayla gelen tanıma modeli ve Windows'un kendi el yazısı tanıyıcısı kullanılır.</p>
+    <p>Android'de tanıma Google'ın <strong>ML Kit</strong> kitaplığıyla cihazda yapılır. El yazısı tanıma modeli ilk kullanımda, onaylarsan, Google'dan bir kez indirilir. Google'ın açıklamasına göre ML Kit, kitaplığın kullanımına ve başarımına ilişkin ölçümleri (ör. cihaz modeli, Android ve uygulama sürümü, tanımanın ne kadar sürdüğü) Google'a gönderebilir; bu ölçümler belgenin içeriğini, görüntüsünü ya da tanınan yazıyı taşımaz ve Google'ın kendi gizlilik koşullarına tabidir.</p>
+  </section>
   <section><h2>Reklam, izleme ve ekran görüntüleri</h2>
-    <p>Uygulamada reklam, veri satışı veya izleme SDK'sı yoktur. Android Hızlı Ayarlar kutucuğuna dokunduğunda yalnız en yeni ekran görüntüsü okunur. Masaüstünde ekran görüntüsü önerisini açarsan seçtiğin klasördeki yeni görüntüler önerilir; eklemek için karta dokunursun. iPhone ve iPad'de Kestirmeler'e verdiğin görüntü işlenir.</p>
+    <p>Uygulamada reklam, veri satışı veya izleme SDK'sı yoktur (Android'de yazı tanıma kitaplığının gönderebildiği kullanım ölçümleri yukarıda). Android Hızlı Ayarlar kutucuğuna dokunduğunda yalnız en yeni ekran görüntüsü okunur. Masaüstünde ekran görüntüsü önerisini açarsan seçtiğin klasördeki yeni görüntüler önerilir; eklemek için karta dokunursun. iPhone ve iPad'de Kestirmeler'e verdiğin görüntü işlenir.</p>
   </section>
   <section><h2>KVKK kapsamındaki hakların</h2>
     <p>6698 sayılı Kanun'un 11. maddesi kapsamında verilerinin işlenip işlenmediğini öğrenebilir, işleniyorsa bilgi ve erişim isteyebilir, eksik veya yanlış bilgilerin düzeltilmesini ve koşulları oluştuğunda silinmesini ya da yok edilmesini talep edebilirsin. Diğer haklarını da <a href="https://www.kvkk.gov.tr/Icerik/2036/Ilgili-Kisinin-Haklari">Kişisel Verileri Koruma Kurumu'nun açıklamasında</a> bulabilirsin.</p>
